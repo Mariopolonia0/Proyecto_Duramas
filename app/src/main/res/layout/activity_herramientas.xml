@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFondo"
+    tools:context=".AgregarHerramientas">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorFondo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:contentDescription="@string/BotonBuscar"
+            android:onClick="BuscarHerramienta"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toEndOf="@+id/imageButton"
+            app:layout_constraintTop_toTopOf="@+id/imageButton"
+            app:srcCompat="@mipmap/icono_buscar" />
+
+        <EditText
+            android:id="@+id/editTextDescripcionHerramientas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:autofillHints="username"
+            android:ems="10"
+            android:inputType="text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDescripcion"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/editTextCodigoHerramientas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="username"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton"
+            tools:ignore="LabelFor" />
+
+        <TextView
+            android:id="@+id/textViewCantidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/Cantida"
+            android:textColor="#039BE5"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/editTextCantidadHerramientas"
+            app:layout_constraintTop_toBottomOf="@+id/editTextDescripcionHerramientas" />
+
+        <TextView
+            android:id="@+id/textViewTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/EditarHerramientas"
+            android:textColor="#039BE5"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewMarca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/Marca"
+            android:textColor="#039BE5"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/editTextMarca"
+            app:layout_constraintTop_toBottomOf="@+id/editTextDescripcionHerramientas" />
+
+        <TextView
+            android:id="@+id/textViewCodigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/TextCodigo"
+            android:textColor="#039BE5"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/editTextCodigoHerramientas"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitulo" />
+
+        <TextView
+            android:id="@+id/textViewDescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/Descripcion"
+            android:textColor="#039BE5"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/editTextDescripcionHerramientas"
+            app:layout_constraintTop_toBottomOf="@+id/editTextCodigoHerramientas" />
+
+        <EditText
+            android:id="@+id/editTextMarca"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:inputType="textPersonName"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editTextCantidadHerramientas"
+            app:layout_constraintTop_toBottomOf="@+id/textViewMarca"
+            tools:visibility="visible" />
+
+        <EditText
+            android:id="@+id/editTextCantidadHerramientas"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:autofillHints="username"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="@+id/editTextDescripcionHerramientas"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCantidad"
+            tools:ignore="LabelFor" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="15dp"
+            android:onClick="Limpiar"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewCodigo"
+            app:layout_constraintStart_toEndOf="@+id/textViewCodigo"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitulo"
+            app:srcCompat="@mipmap/iconoguardar" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextCantidadHerramientas">
+
+            <ImageButton
+                android:id="@+id/imageButtonGuardar"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:contentDescription="@string/ImagenGuardar"
+                android:onClick="GuardarHerramientas"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/iconoguarda" />
+
+            <ImageButton
+                android:id="@+id/imageButtonEliminar"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:contentDescription="@string/BotonEliminar"
+                android:onClick="EliminarHerramientas"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageButtonEditar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/botoneliminar" />
+
+            <ImageButton
+                android:id="@+id/imageButtonEditar"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:contentDescription="@string/BotonEditar"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageButtonGuardar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/icono_editar" />
+
+            <ImageButton
+                android:id="@+id/imageButtonLista"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:contentDescription="@string/BotonLista"
+                android:onClick="ListaHerramienta"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageButtonEliminar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/iconolista" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

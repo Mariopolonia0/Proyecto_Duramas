@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2FFFC"
+    tools:context=".CrearFactura">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutCodigoNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        tools:layout_editor_absoluteX="55dp">
+
+        <EditText
+            android:id="@+id/editTextCodigoFactura"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/TextCodigofactura"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:nextFocusDown="@id/editTextNombreClienteFactura"
+            android:textSize="18sp"
+            tools:ignore="LabelFor" />
+
+        <ImageButton
+            android:id="@+id/imageButtonBuscar"
+            android:layout_width="50dp"
+            android:layout_height="47dp"
+
+
+            android:onClick="BuscarRegistro"
+            android:scaleType="fitXY"
+            app:srcCompat="@mipmap/icono_buscar2" />
+
+        <EditText
+            android:id="@+id/editTextNombreClienteFactura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Nombreclientefactura"
+            android:inputType="textPersonName"
+            android:nextFocusDown="@id/editTextDirecionFactura"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutBotones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPrecioTotalDocumento">
+
+        <ImageButton
+            android:id="@+id/imageButtonImprimir"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:onClick="CrearPdf"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageButtonGuardar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@mipmap/imprimir" />
+
+        <ImageButton
+            android:id="@+id/imageButtonGuardar"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:onClick="GuardarRegistro"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@mipmap/iconoguarda" />
+
+        <ImageButton
+            android:id="@+id/imageButtonEliminar"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:onClick="EliminarEquipo"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageButtonImprimir"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@mipmap/botoneliminar" />
+
+        <ImageButton
+            android:id="@+id/imageButtonLimpiar"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageButtonEliminar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@mipmap/iconoguardar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutLlenarLista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewPrecioTotalDocumento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/colorTitulo"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ListViewDocumento" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutDirrecionNumero">
+
+        <TextView
+            android:id="@+id/textViewTipoDocumento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Documentofactura"
+            android:textColor="#000000"
+            android:textSize="17sp" />
+
+        <Spinner
+            android:id="@+id/spinnertipodocumento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:nextFocusDown="@id/editTextFechaFactura" />
+
+        <EditText
+            android:id="@+id/editTextFechaFactura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Fechafactura"
+            android:inputType="date|time"
+            android:maxLength="10"
+            android:nextFocusDown="@id/editTextServicioDocumento"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutDirrecionNumero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCodigoNombre">
+
+        <EditText
+            android:id="@+id/editTextDirecionFactura"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/Direcionfactura"
+            android:inputType="textPersonName"
+            android:longClickable="false"
+            android:nextFocusDown="@id/editTextNumeroFactura"
+            android:selectAllOnFocus="false"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/editTextNumeroFactura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/NumeroClientefactura"
+            android:inputType="number|phone"
+            android:maxLength="12"
+            android:nextFocusDown="@id/spinnertipodocumento"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/ListViewDocumento"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="#D8D8D8"
+        android:descendantFocusability="afterDescendants"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Documentofactura"
+        android:textColor="@color/colorTitulo"
+        android:textIsSelectable="false"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        tools:layout_editor_absoluteX="1dp">
+
+        <EditText
+            android:id="@+id/editTextServicioDocumento"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:hint="@string/Serviciofactura"
+            android:inputType="textPersonName"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/editTextITEBISDocumento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/TextITBIS"
+            android:inputType="textPersonName"
+            android:nextFocusDown="@id/editTextDescripcionDocumento" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <EditText
+            android:id="@+id/editTextDescripcionDocumento"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:hint="@string/Descripcion"
+            android:inputType="textPersonName"
+            android:nextFocusDown="@id/editTextCantidadDocumento"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="#ACACAC"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/editTextCantidadDocumento"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextCantidadDocumento"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="@string/Cantida"
+            android:inputType="number"
+            android:nextFocusDown="@id/editTextPrecioDocumento"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="#ACACAC"
+            app:layout_constraintEnd_toStartOf="@+id/editTextPrecioDocumento"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextPrecioDocumento"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="@string/Precio"
+            android:inputType="number"
+            android:nextFocusDown="@id/imageButtonAgregar"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="#ACACAC"
+            app:layout_constraintEnd_toStartOf="@+id/imageButtonAgregar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButtonAgregar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="AgregarMateriales"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/imagen" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

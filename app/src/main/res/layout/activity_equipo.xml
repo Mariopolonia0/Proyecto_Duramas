@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFondo"
+    android:focusableInTouchMode="true"
+    tools:context=".FormularioEquipo">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:contentDescription="@string/ImagenGuardar"
+            android:onClick="GuardarEquipo"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/iconoguarda" />
+
+        <ImageButton
+            android:id="@+id/imageButton7"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/icono_editar" />
+
+        <ImageButton
+            android:id="@+id/imageButton8"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:contentDescription="@string/BotonEliminar"
+            android:onClick="EliminarEquipo"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton7"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/botoneliminar" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:onClick="ListaEquipo"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton8"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/iconolista" />
+
+        <ImageButton
+            android:id="@+id/imageButton9"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:onClick="EntregarEquipo"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/iconoentregar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorFondo"
+        android:focusableInTouchMode="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/TituloEquipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tituloEquipo"
+            android:textColor="@color/colorTitulo"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextCliente"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/DatotextView"
+            app:layout_constraintTop_toBottomOf="@+id/DatotextView" />
+
+        <EditText
+            android:id="@+id/editTextNumberCodigo"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textcodigo" />
+
+        <TextView
+            android:id="@+id/textcodigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:text="@string/TextCodigo"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TituloEquipo" />
+
+        <EditText
+            android:id="@+id/editTextProblemaEquipo"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline10"
+            app:layout_constraintTop_toBottomOf="@+id/textViewProblemaEquipo" />
+
+        <EditText
+            android:id="@+id/editTextNumeroTelefono"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewNumero" />
+
+        <TextView
+            android:id="@+id/textViewFechaEntrada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/FechadeEntrada"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerTipoEquipo" />
+
+        <TextView
+            android:id="@+id/textViewComentarioTecnico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/comentarioTecnico"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline10"
+            app:layout_constraintTop_toTopOf="@+id/textViewFechaEntrada" />
+
+        <EditText
+            android:id="@+id/editTextMarca"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewMarca" />
+
+        <Spinner
+            android:id="@+id/spinnerTipoEquipo"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tVTipoEquipo" />
+
+        <TextView
+            android:id="@+id/textViewMarca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Marca"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/textViewModelo"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNumberCodigo" />
+
+        <TextView
+            android:id="@+id/DatotextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TextCliente"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton10"
+            app:layout_constraintStart_toStartOf="@+id/guideline10"
+            app:layout_constraintTop_toBottomOf="@+id/TituloEquipo"
+            app:layout_constraintVertical_bias="0.615" />
+
+        <TextView
+            android:id="@+id/textViewComentarioCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ComentarioCliente"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline10"
+            app:layout_constraintTop_toTopOf="@+id/textViewNumero" />
+
+        <TextView
+            android:id="@+id/textViewNumero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Numero"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/DateFechaEntrada" />
+
+        <TextView
+            android:id="@+id/textViewModelo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Modelo"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline10"
+            app:layout_constraintTop_toBottomOf="@+id/editTextCliente" />
+
+        <EditText
+            android:id="@+id/editTextModelo"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline10"
+            app:layout_constraintTop_toBottomOf="@+id/textViewModelo" />
+
+        <TextView
+            android:id="@+id/tVTipoEquipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TipoEquipo"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextMarca" />
+
+        <EditText
+            android:id="@+id/editTextComentarioTecnico"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline10"
+            app:layout_constraintTop_toBottomOf="@+id/textViewComentarioTecnico" />
+
+        <EditText
+            android:id="@+id/editTextComentarioCliente"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline10"
+            app:layout_constraintTop_toBottomOf="@+id/textViewComentarioCliente" />
+
+        <ImageButton
+            android:id="@+id/imageButton6"
+            android:layout_width="53dp"
+            android:layout_height="35dp"
+            android:onClick="Limpiar"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toEndOf="@+id/DatotextView"
+            app:layout_constraintTop_toBottomOf="@+id/TituloEquipo"
+            app:srcCompat="@mipmap/iconoguardar" />
+
+        <ImageButton
+            android:id="@+id/imageButton10"
+            android:layout_width="65dp"
+            android:layout_height="35dp"
+            android:contentDescription="@string/BotonBuscar"
+            android:onClick="BuscarCodigo"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toStartOf="@+id/DatotextView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textcodigo"
+            app:layout_constraintTop_toBottomOf="@+id/TituloEquipo"
+            app:srcCompat="@mipmap/icono_buscar2" />
+
+        <EditText
+            android:id="@+id/DateFechaEntrada"
+            android:layout_width="110dp"
+            android:layout_height="41dp"
+            android:ems="10"
+            android:inputType="date"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFechaEntrada"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textViewProblemaEquipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ProblemaEquipo"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline10"
+            app:layout_constraintTop_toBottomOf="@+id/editTextModelo" />
+
+        <ImageButton
+            android:id="@+id/imageButton12"
+            android:layout_width="58dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:contentDescription="@string/BotonBuscar"
+            android:onClick="BuscarNombre"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.012"
+            app:layout_constraintStart_toEndOf="@+id/imageButton6"
+            app:layout_constraintTop_toBottomOf="@+id/TituloEquipo"
+            app:srcCompat="@mipmap/icono_buscar2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="168dp" />
+
+        <ImageButton
+            android:id="@+id/imageButtonFecha"
+            android:layout_width="58dp"
+            android:layout_height="41dp"
+            android:onClick="buscarFechaHoy"
+            android:scaleType="fitXY"
+            android:src="@mipmap/fecha"
+            app:layout_constraintStart_toEndOf="@+id/DateFechaEntrada"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFechaEntrada" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

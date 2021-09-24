@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">DURAMAS APP </string>
+    <string name="Bienvenida">Bienvenido A Tu App</string>
+    <string name="tituloEquipo">Equipos</string>
+    <string name="tituloEntregarEquipo">Entregar Equipo</string>
+    <string name="ControlEquipo">Control De Equipo</string>
+    <string name="Controlherramienta">Control De Herramienta</string>
+    <string name="Listadeherramienta">Lista De Herramienta</string>
+    <string name="Listadecliente">Lista De Equipos</string>
+    <string name="TextCliente">Cliente</string>
+    <string name="TextCodigo">Codigo</string>
+    <string name="TextBotin1">Guardar</string>
+    <string name="TextBoton2">Buscar</string>
+    <string name="Marca">Marca</string>
+    <string name="Modelo">Modelo</string>
+    <string name="TipoEquipo">Tipo De Equipo</string>
+    <string name="Numero">Numero De Telefono</string>
+    <string name="ProblemaEquipo">Problema De Equipo</string>
+    <string name="comentarioTecnico">Comentario Del Tecnico</string>
+    <string name="FechadeEntrada">Fecha De Entrada</string>
+    <string name="ComentarioCliente">Comentario Del Cliente</string>
+    <string name="BuscarEquipos">Buscar Equipos</string>
+    <string name="EntregarEquipo">Entregar Equipo</string>
+    <string name="BotonModificar">Modificar"</string>
+    <string name="BotonEliminar">Eliminar </string>
+    <string name="BotonBuscar">Buscar </string>
+    <string name="BotonLista">Lista </string>
+    <string name="BotonEditar">Editar </string>
+    <string name="Precio">Precio</string>
+    <string name="Descripcion">Descripcion</string>
+    <string name="Cantida">Cantidad</string>
+    <string name="PrecioTotal">Precio Total</string>
+    <string name="EditarHerramientas">Herramientas</string>
+    <string name="ImagenGuardar">Imagen Guardar</string>
+    <string name="Documentofactura">Documento</string>
+    <string name="Nombreclientefactura">Nombre</string>
+    <string name="Direcionfactura">Direccion</string>
+    <string name="Serviciofactura">Servicio</string>
+    <string name="Fechafactura">Fecha</string>
+    <string name="NumeroClientefactura">Numero</string>
+    <string name="TextCodigofactura">Codigo</string>
+    <string name="TextITBIS">ITBIS</string>
+    <string name="TextTipo">Tipo</string>
+
+</resources>
