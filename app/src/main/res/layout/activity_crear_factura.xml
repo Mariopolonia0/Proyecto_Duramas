@@ -17,29 +17,27 @@
 
         <EditText
             android:id="@+id/editTextCodigoFactura"
-            android:layout_width="100dp"
+            android:layout_width="75dp"
             android:layout_height="wrap_content"
             android:hint="@string/TextCodigofactura"
             android:importantForAutofill="no"
             android:inputType="number"
             android:nextFocusDown="@id/editTextNombreClienteFactura"
             android:textSize="18sp"
-            tools:ignore="LabelFor" />
+            tools:ignore="LabelFor,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
-        <ImageButton
-            android:id="@+id/imageButtonBuscar"
-            android:layout_width="50dp"
-            android:layout_height="47dp"
-
-
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="44dp"
+            android:layout_height="match_parent"
             android:onClick="BuscarRegistro"
-            android:scaleType="fitXY"
-            app:srcCompat="@mipmap/icono_buscar2" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_round_search_24" />
 
         <EditText
             android:id="@+id/editTextNombreClienteFactura"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="257dp"
+            android:layout_height="match_parent"
             android:hint="@string/Nombreclientefactura"
             android:inputType="textPersonName"
             android:nextFocusDown="@id/editTextDirecionFactura"
@@ -51,63 +49,57 @@
         android:id="@+id/constraintLayoutBotones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPrecioTotalDocumento">
+        app:layout_constraintStart_toStartOf="parent">
 
-        <ImageButton
-            android:id="@+id/imageButtonImprimir"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:onClick="CrearPdf"
-            android:scaleType="fitXY"
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imageButtonGuardar"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@mipmap/imprimir" />
+            app:srcCompat="@drawable/ic_actualizar" />
 
-        <ImageButton
-            android:id="@+id/imageButtonGuardar"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:onClick="GuardarRegistro"
-            android:scaleType="fitXY"
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="1dp"
+            android:onClick="EliminarEquipo"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_round_delete_24" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:onClick="GuardarRegistro"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@mipmap/iconoguarda" />
+            app:srcCompat="@drawable/ic_save_" />
 
-        <ImageButton
-            android:id="@+id/imageButtonEliminar"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:onClick="EliminarEquipo"
-            android:scaleType="fitXY"
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:onClick="CrearPdf"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imageButtonImprimir"
+            app:layout_constraintEnd_toStartOf="@+id/imageView4"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@mipmap/botoneliminar" />
-
-        <ImageButton
-            android:id="@+id/imageButtonLimpiar"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imageButtonEliminar"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@mipmap/iconoguardar" />
+            app:srcCompat="@drawable/ic_print" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -128,12 +120,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
+        android:layout_marginBottom="16dp"
+        android:autoText="false"
         android:textColor="@color/colorTitulo"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayoutBotones"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ListViewDocumento" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -206,9 +200,10 @@
     <ListView
         android:id="@+id/ListViewDocumento"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="0dp"
         android:background="#D8D8D8"
-        android:descendantFocusability="afterDescendants"
+        android:descendantFocusability="beforeDescendants"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPrecioTotalDocumento"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -231,8 +226,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-        tools:layout_editor_absoluteX="1dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
         <EditText
             android:id="@+id/editTextServicioDocumento"
@@ -242,13 +238,17 @@
             android:inputType="textPersonName"
             android:textSize="18sp" />
 
-        <EditText
-            android:id="@+id/editTextITEBISDocumento"
+        <CheckBox
+            android:id="@+id/checkBoxItbis"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/TextITBIS"
-            android:inputType="textPersonName"
-            android:nextFocusDown="@id/editTextDescripcionDocumento" />
+            android:layout_height="match_parent"
+            android:shadowColor="#000000"
+            android:text="@string/TextITBIS"
+            android:textColor="#000000"
+            android:textColorHighlight="#000000"
+            android:textColorHint="#000000"
+            android:textColorLink="#000000" />
+
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -291,21 +291,22 @@
             android:layout_height="match_parent"
             android:hint="@string/Precio"
             android:inputType="number"
-            android:nextFocusDown="@id/imageButtonAgregar"
+
             android:textColor="@color/colorBlack"
             android:textColorHint="#ACACAC"
-            app:layout_constraintEnd_toStartOf="@+id/imageButtonAgregar"
+            app:layout_constraintEnd_toStartOf="@+id/imageView2"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-            android:id="@+id/imageButtonAgregar"
+        <ImageView
+            android:id="@+id/imageView2"
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="0dp"
             android:onClick="AgregarMateriales"
-            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/imagen" />
+            app:srcCompat="@drawable/ic_aceptar" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

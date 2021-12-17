@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -43,7 +44,7 @@ public class CrearFactura extends AppCompatActivity {
     private EditText EditTextDescripcion;
     private EditText EditTextCantidad;
     private EditText EditTextPrecio;
-    private EditText EditTextITBIS;
+    private CheckBox CheckBoxITBIS;
 
     private ListView listViewlistademateriales;
     ArrayList<DetalleMaterial> ListaMateriales=null;
@@ -66,12 +67,11 @@ public class CrearFactura extends AppCompatActivity {
         EditTextDescripcion = (EditText) findViewById(R.id.editTextDescripcionDocumento);
         EditTextCantidad = (EditText) findViewById(R.id.editTextCantidadDocumento);
         EditTextPrecio = (EditText) findViewById(R.id.editTextPrecioDocumento);
-        EditTextITBIS = (EditText) findViewById(R.id.editTextITEBISDocumento);
-        EditTextITBIS.setText("0.18");
+        CheckBoxITBIS = (CheckBox) findViewById(R.id.checkBoxItbis);
         CodigoDocumentoEditText.setText(OtenerUltimoRegistro());
 
         PrecioTotalText = (TextView) findViewById(R.id.textViewPrecioTotalDocumento);
-        PrecioTotalText.setText("PRECIO = 0");
+        PrecioTotalText.setText("PRECIO $ 0");
         listViewlistademateriales =(ListView) findViewById(R.id.ListViewDocumento);
         listViewlistademateriales.setDescendantFocusability(ViewGroup.FOCUS_AFTER_DESCENDANTS);
         ListaMateriales =new ArrayList<DetalleMaterial>();
@@ -197,14 +197,14 @@ public class CrearFactura extends AppCompatActivity {
 
             if(cantidad == 1){
                 AlertDialog.Builder alerta = new AlertDialog.Builder(CrearFactura.this);
-                alerta.setMessage("Se Elimino Con Exito El Equipo : " +Codigo).setCancelable(true);
+                alerta.setMessage("Se Elimino Con Exito El Documento : " +Codigo).setCancelable(true);
                 AlertDialog titulo = alerta.create();
                 titulo.setTitle("Alerta... Lee el Mensaje");
                 titulo.show();
                 //Limpiar(null);
             }else{
                 AlertDialog.Builder alerta = new AlertDialog.Builder(CrearFactura.this);
-                alerta.setMessage("No Existe El Equipo : "+ Codigo).setCancelable(true);
+                alerta.setMessage("No Existe El Documento : "+ Codigo).setCancelable(true);
                 AlertDialog titulo = alerta.create();
                 titulo.setTitle("Alerta... Lee el Mensaje");
                 titulo.show();
@@ -222,18 +222,22 @@ public class CrearFactura extends AppCompatActivity {
 
     public void AgregarMateriales(View view){
 
-        if (!EditTextDescripcion.getText().toString().isEmpty() && !EditTextCantidad.getText().toString().isEmpty() && !EditTextPrecio.getText().toString().isEmpty() && !EditTextITBIS.getText().toString().isEmpty() ) {
+        if (!EditTextDescripcion.getText().toString().isEmpty() && !EditTextCantidad.getText().toString().isEmpty() && !EditTextPrecio.getText().toString().isEmpty()  ) {
             DetalleMaterial material=new DetalleMaterial();
             material.setDescripcion(EditTextDescripcion.getText().toString());
             material.setPrecio(EditTextPrecio.getText().toString());
             material.setCantidad(EditTextCantidad.getText().toString());
             material.setTotal(String.valueOf(Float.parseFloat(EditTextPrecio.getText().toString())*Float.parseFloat(EditTextCantidad.getText().toString())));
-            material.setITBIS(String.valueOf(Float.parseFloat(material.getTotal())*Float.parseFloat(EditTextITBIS.getText().toString())));
+            if(CheckBoxITBIS.isChecked())
+                material.setITBIS(String.valueOf(Float.parseFloat(material.getTotal())*Float.parseFloat("0.18")));
+            else
+                material.setITBIS(String.valueOf(Float.parseFloat(material.getTotal())*Float.parseFloat("0")));
+
             material.setTotal(String.valueOf(Float.parseFloat(material.getTotal())+Float.parseFloat(material.getITBIS())));
 
             ListaMateriales.add(material);
             listViewlistademateriales.setAdapter(new AdactadorMaterial(this,ListaMateriales));
-            PrecioTotalText.setText("PRECIO TOTAL : "+Total(material.getTotal()));
+            PrecioTotalText.setText("PRECIO TOTAL $ "+Total(material.getTotal()));
             EditTextDescripcion.setText("");
             EditTextCantidad.setText("");
             EditTextPrecio.setText("");
@@ -264,22 +268,12 @@ public class CrearFactura extends AppCompatActivity {
                 titulo.setTitle("Alerta. Lee el Mensaje");
                 titulo.show();
             }
-
-            if(EditTextITBIS.getText().toString().isEmpty()){
-                AlertDialog.Builder alerta = new AlertDialog.Builder(CrearFactura.this);
-                alerta.setMessage("El Campo ITBIS\nEsta Vacio").setCancelable(true);
-                AlertDialog titulo = alerta.create();
-                titulo.setTitle("Alerta. Lee el Mensaje");
-                titulo.show();
-            }
-
-
         }
     }
 
     public void CrearPdf(View view){
         String encavezadotitulo[] = {spinnerTipodocumento.getSelectedItem().toString()+" #","","FECHA"};
-        String encavezadoMateriales[] = {"DESCRIPCION MATERIALES","CANT.","PRECIO","ITBES","TOTAL"};
+        String encavezadoMateriales[] = {"DESCRIPCION MATERIALES","CANT.","PRECIO","ITBIS","TOTAL"};
 
         plantillaDuramas=new PlantillaDuramas(getApplicationContext());
         if(plantillaDuramas.openDocument(spinnerTipodocumento.getSelectedItem().toString()+"_"+CodigoDocumentoEditText.getText().toString()) == 1){
@@ -307,7 +301,10 @@ public class CrearFactura extends AppCompatActivity {
         plantillaDuramas.createTableCliente("SERVICIO",colorFondoPdf,colorLetraPdf,1);
         plantillaDuramas.addParagraph(ServicioEditText.getText().toString());
         plantillaDuramas.createTable(encavezadoMateriales,ListaMateriales);
-        plantillaDuramas.addPrecioTotal(PrecioTotalText.getText().toString());
+        String precio0[] = {" "," "};
+        plantillaDuramas.createTableprecioTotal(precio0);
+        String[] precio = {"",PrecioTotalText.getText().toString()};
+        plantillaDuramas.createTableprecioTotal(precio);
         plantillaDuramas.addParagraph(" ");
         plantillaDuramas.addParagraph("                 ______________________                           ______________________");
         plantillaDuramas.addParagraph("                     Firma Representante                                       Firma Cliente");

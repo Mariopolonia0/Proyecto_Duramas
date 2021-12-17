@@ -60,39 +60,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonNuevoRegistro" />
 
-        <ImageButton
-            android:id="@+id/imageButton15"
-            android:layout_width="85dp"
-            android:layout_height="85dp"
-            android:adjustViewBounds="false"
-            android:cropToPadding="false"
-            android:onClick="infor"
-            android:scaleType="fitXY"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton16"
-            app:layout_constraintTop_toTopOf="@+id/imageButton16"
-            app:srcCompat="@mipmap/info" />
+        <ImageView
+            android:id="@+id/imageViewGenerarDocumento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="CrearFactura"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewEntregarEquipo"
+            app:layout_constraintStart_toEndOf="@+id/imageViewEntregarEquipo"
+            app:layout_constraintTop_toTopOf="@+id/imageViewEntregarEquipo"
+            app:srcCompat="@drawable/ic_twotone_price_change_24"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-        <ImageButton
-            android:id="@+id/imageButton16"
-            android:layout_width="85dp"
-            android:layout_height="85dp"
-            android:layout_marginTop="5dp"
+        <ImageView
+            android:id="@+id/imageViewInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="infor"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewEntregarEquipo"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewEntregarEquipo"
+            app:layout_constraintTop_toTopOf="@+id/imageViewEntregarEquipo"
+            app:srcCompat="@drawable/ic_twotone_info_24"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageView
+            android:id="@+id/imageViewEntregarEquipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:onClick="EntregarEquipo"
-            android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button2"
-            app:srcCompat="@mipmap/iconoentregar" />
-
-        <ImageButton
-            android:id="@+id/imageButton18"
-            android:layout_width="85dp"
-            android:layout_height="85dp"
-            android:onClick="CrearFactura"
-            android:scaleType="fitXY"
-            app:layout_constraintStart_toEndOf="@+id/imageButton16"
-            app:layout_constraintTop_toTopOf="@+id/imageButton16"
-            app:srcCompat="@mipmap/iconofactura" />
+            app:srcCompat="@drawable/ic_twotone_fact_check_24"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

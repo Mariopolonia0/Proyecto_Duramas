@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
@@ -43,7 +44,6 @@ public class PlantillaDuramas {
     private Font fnumero = new Font(Font.FontFamily.TIMES_ROMAN,10,Font.BOLD);
     private Font fTotal = new Font(Font.FontFamily.TIMES_ROMAN,14,Font.BOLD,BaseColor.RED);
     private Font fdatoTabla = new Font(Font.FontFamily.TIMES_ROMAN,14,Font.BOLD,BaseColor.BLACK);
-
 
     public PlantillaDuramas(Context context) {
         this.context = context;
@@ -125,6 +125,7 @@ public class PlantillaDuramas {
     public void addPrecioTotal(String text){
         try{
             paragraph = new Paragraph(text,fTotal);
+            paragraph.setAlignment(Element.ALIGN_RIGHT);
             document.add(paragraph);
         }catch (Exception e){
             Log.e("addPrecioTotal", e.toString());
@@ -172,22 +173,22 @@ public class PlantillaDuramas {
                         indexC++;
                     }  if(indexC==1){
                         pdfPCell = new PdfPCell(new Phrase(row.getCantidad(),fdatoTabla));
-                        pdfPCell.setHorizontalAlignment(Element.ALIGN_LEFT);
+                        pdfPCell.setHorizontalAlignment(Element.ALIGN_RIGHT);
                         pdfPTable.addCell(pdfPCell);
                         indexC++;
                     }if(indexC==3){
                         pdfPCell = new PdfPCell(new Phrase(row.getPrecio(),fdatoTabla));
-                        pdfPCell.setHorizontalAlignment(Element.ALIGN_LEFT);
+                        pdfPCell.setHorizontalAlignment(Element.ALIGN_RIGHT);
                         pdfPTable.addCell(pdfPCell);
                         indexC++;
                     }if(indexC==4) {
                         pdfPCell = new PdfPCell(new Phrase(row.getITBIS(),fdatoTabla));
-                        pdfPCell.setHorizontalAlignment(Element.ALIGN_LEFT);
+                        pdfPCell.setHorizontalAlignment(Element.ALIGN_RIGHT);
                         pdfPTable.addCell(pdfPCell);
                         indexC++;
                     }if(indexC==5) {
                         pdfPCell = new PdfPCell(new Phrase(row.getTotal(),fdatoTabla));
-                        pdfPCell.setHorizontalAlignment(Element.ALIGN_LEFT);
+                        pdfPCell.setHorizontalAlignment(Element.ALIGN_RIGHT);
                         pdfPTable.addCell(pdfPCell);
                         indexC++;
                     }
@@ -254,6 +255,35 @@ public class PlantillaDuramas {
             document.add(paragraph);
         }catch (Exception e){
             Log.e("createTableCliente", e.toString());
+        }
+    }
+
+    public void createTableprecioTotal(String[] precio){
+        try{
+            fsubtitulo.setColor(BaseColor.RED);
+            paragraph = new Paragraph();
+            paragraph.setFont(ftexto);
+            PdfPTable pdfPTable = new PdfPTable(2);
+            //esta funcio recive un arreglo de numero para darle el tamaño a cada celda usando porcentajes
+            pdfPTable.setWidths(new int[]{53,50});
+            //esta funcio configura el tamaño que ba a tener la tabla en el pdf usando un porcentajes
+            pdfPTable.setWidthPercentage(100);
+            pdfPTable.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            PdfPCell pdfPCell;
+
+            int indexC = 0;
+            //rellena la table de encabezado
+            while (indexC<precio.length) {
+
+                pdfPCell = new PdfPCell(new Phrase(precio[indexC++], fsubtitulo));
+                pdfPCell.setVerticalAlignment(Element.ALIGN_RIGHT);
+                pdfPCell.setHorizontalAlignment(Element.ALIGN_RIGHT);
+                pdfPTable.addCell(pdfPCell);
+            }
+            paragraph.add(pdfPTable);
+            document.add(paragraph);
+        }catch (Exception e){
+            Log.e("createTableprecioTotal", e.toString());
         }
     }
 

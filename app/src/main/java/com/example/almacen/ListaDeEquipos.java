@@ -49,16 +49,5 @@ public class ListaDeEquipos extends AppCompatActivity {
             ListaEquipos.add(equipo);
         }
     }
-    //esta clase hace una lista sin personalisar osea que solo funciona para un xml como el del speener
-    //y no se esta usando
-    /*
-    private void obtenerLista() {
-        ListaInformacion = new ArrayList<String>();
-
-        for(int i=0; i<ListaEquipos.size();i++){
-            ListaInformacion.add("\t"+ListaEquipos.get(i).getCodigo()+"\t\t\t\t\t\t"+ListaEquipos.get(i).getCliente()
-            +"\t\t"+ListaEquipos.get(i).getTipoEquipo());
-        }
-    }*/
 }
 

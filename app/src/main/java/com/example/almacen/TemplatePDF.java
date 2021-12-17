@@ -44,7 +44,6 @@ public class TemplatePDF {
     private Font fTotal = new Font(Font.FontFamily.TIMES_ROMAN,16,Font.BOLD,BaseColor.RED);
     private Font fdatoTabla = new Font(Font.FontFamily.TIMES_ROMAN,16,Font.BOLD,BaseColor.BLACK);
 
-
     public TemplatePDF(Context context) {
         this.context = context;
     }
@@ -103,10 +102,7 @@ public class TemplatePDF {
     public void addParagraph(String text){
         try{
             paragraph = new Paragraph(text,ftexto);
-            //paragraph.setSpacingAfter(1);
-            //paragraph.setSpacingBefore(1);
             document.add(paragraph);
-
         }catch (Exception e){
             Log.e("addParagraph", e.toString());
         }
@@ -115,8 +111,6 @@ public class TemplatePDF {
     public void addPrecioTotal(String text){
         try{
             paragraph = new Paragraph(text,fTotal);
-            //paragraph.setSpacingAfter(1);
-            //paragraph.setSpacingBefore(1);
             document.add(paragraph);
         }catch (Exception e){
             Log.e("addTitulo", e.toString());
@@ -130,7 +124,6 @@ public class TemplatePDF {
         }catch (Exception e){
             Log.e("addImagen", e.toString());
         }
-
     }
 
     public void createTable(String[]header, ArrayList<DetalleMaterial> material){
@@ -190,11 +183,6 @@ public class TemplatePDF {
             Log.e("createTable", e.toString());
         }
     }
-
-
-
-
-
 
     public void PDFView(){
         Intent intent = new Intent(context,VistaPdf.class);
