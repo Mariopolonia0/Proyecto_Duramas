@@ -30,6 +30,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void RetrofitControllerview(View view) {
+        AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
+        alerta.setMessage("sigue creyendo hay. que te va a pasar como el hermano de Angelica").setCancelable(true);
+        AlertDialog titulo = alerta.create();
+
+        titulo.setTitle("Informacion De La Aplicacion");
+        titulo.show();
+        titulo.getWindow().getDecorView().getBackground().setColorFilter(new LightingColorFilter(0x800FF00,0xF2FFFC));
+    }
+
     public void GuardarRegitro(View view){
         Intent VentanaGuardar = new Intent(this,FormularioEquipo.class);
         startActivity(VentanaGuardar);

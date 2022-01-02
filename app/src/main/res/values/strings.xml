@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DURAMAS APP </string>
+    <string name="app_name">DURAMAS APP</string>
     <string name="Bienvenida">Bienvenido A Tu App</string>
     <string name="tituloEquipo">Equipos</string>
     <string name="tituloEntregarEquipo">Entregar Equipo</string>
@@ -41,5 +41,6 @@
     <string name="TextCodigofactura">Codigo</string>
     <string name="TextITBIS">ITBIS</string>
     <string name="TextTipo">Tipo</string>
+    <string name="item">Item</string>
 
 </resources>

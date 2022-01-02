@@ -6,7 +6,9 @@
         <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/drawable-v24/list_border.xml" value="0.2109375" />
         <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/drawable/border_item_list.xml" value="0.2109375" />
         <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/drawable/ic_actualizar.xml" value="0.21145833333333333" />
+        <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/drawable/ic_new.xml" value="0.23385416666666667" />
         <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/drawable/ic_print.xml" value="0.21145833333333333" />
+        <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/drawable/ic_round_liquor_.xml" value="0.2760416666666667" />
         <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/drawable/ic_round_search_24.xml" value="0.21145833333333333" />
         <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/drawable/ic_save_.xml" value="0.21145833333333333" />
         <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/drawable/ic_twotone_fact_check_24.xml" value="0.2109375" />
@@ -15,9 +17,15 @@
         <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/drawable/iconoduramas_background.xml" value="0.21145833333333333" />
         <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/layout/activity_crear_factura.xml" value="0.22" />
         <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/layout/activity_entregar_equipo.xml" value="0.25" />
+        <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/layout/activity_herramientas.xml" value="0.26875" />
         <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/layout/list_view_lista_herramientas.xml" value="0.21770833333333334" />
         <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/layout/list_view_lista_materiales.xml" value="0.8188585607940446" />
+        <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/layout/menu_action_bar.xml" value="0.2708333333333333" />
+        <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/layout/spinne_edicion.xml" value="0.2708333333333333" />
+        <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/menu/menu_action_bar.xml" value="0.2708333333333333" />
         <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/mipmap-anydpi-v26/iconoduramas.xml" value="0.21145833333333333" />
+        <entry key="..\:/Users/Mario/AndroidStudioProjects/Proyecto_Duramas/app/src/main/res/xml/xml.xml" value="0.2598958333333333" />
       </map>
     </option>
   </component>

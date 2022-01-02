@@ -5,38 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorFondo"
+    android:clickable="false"
     tools:context=".AgregarHerramientas">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/colorFondo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="70dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:contentDescription="@string/BotonBuscar"
-            android:onClick="BuscarHerramienta"
-            android:scaleType="fitXY"
-            app:layout_constraintStart_toEndOf="@+id/imageButton"
-            app:layout_constraintTop_toTopOf="@+id/imageButton"
-            app:srcCompat="@mipmap/icono_buscar" />
-
         <EditText
             android:id="@+id/editTextDescripcionHerramientas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
             android:autofillHints="username"
-            android:ems="10"
             android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewDescripcion"
             tools:ignore="LabelFor" />
@@ -45,18 +37,26 @@
             android:id="@+id/editTextCodigoHerramientas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
             android:autofillHints="username"
-            android:ems="10"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:clickable="false"
             android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCodigo"
             tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/textViewCantidad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:text="@string/Cantida"
             android:textColor="#039BE5"
             android:textSize="20sp"
@@ -64,44 +64,31 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextDescripcionHerramientas" />
 
         <TextView
-            android:id="@+id/textViewTitulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/EditarHerramientas"
-            android:textColor="#039BE5"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
             android:id="@+id/textViewMarca"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
             android:text="@string/Marca"
             android:textColor="#039BE5"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/editTextMarca"
-            app:layout_constraintTop_toBottomOf="@+id/editTextDescripcionHerramientas" />
+            app:layout_constraintTop_toTopOf="@+id/textViewCantidad" />
 
         <TextView
             android:id="@+id/textViewCodigo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:text="@string/TextCodigo"
             android:textColor="#039BE5"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/editTextCodigoHerramientas"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTitulo" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewDescripcion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:text="@string/Descripcion"
             android:textColor="#039BE5"
             android:textSize="20sp"
@@ -112,7 +99,11 @@
             android:id="@+id/editTextMarca"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
             android:inputType="textPersonName"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
@@ -126,80 +117,78 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:autofillHints="username"
-            android:ems="10"
             android:inputType="number"
             app:layout_constraintStart_toStartOf="@+id/editTextDescripcionHerramientas"
             app:layout_constraintTop_toBottomOf="@+id/textViewCantidad"
             tools:ignore="LabelFor" />
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="70dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="15dp"
-            android:onClick="Limpiar"
-            android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="@+id/textViewCodigo"
-            app:layout_constraintStart_toEndOf="@+id/textViewCodigo"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTitulo"
-            app:srcCompat="@mipmap/iconoguardar" />
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextCantidadHerramientas">
 
             <ImageButton
                 android:id="@+id/imageButtonGuardar"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:contentDescription="@string/ImagenGuardar"
-                android:onClick="GuardarHerramientas"
+                android:onClick="enviarMaterialapi"
                 android:scaleType="centerInside"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@mipmap/iconoguarda" />
+                app:srcCompat="@drawable/ic_save_" />
 
             <ImageButton
                 android:id="@+id/imageButtonEliminar"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:contentDescription="@string/BotonEliminar"
                 android:onClick="EliminarHerramientas"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageButtonEditar"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@mipmap/botoneliminar" />
+                app:srcCompat="@drawable/ic_round_delete_24" />
 
             <ImageButton
                 android:id="@+id/imageButtonEditar"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:contentDescription="@string/BotonEditar"
+                android:onClick="Limpiar"
                 android:scaleType="centerInside"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageButtonGuardar"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@mipmap/icono_editar" />
+                app:srcCompat="@drawable/ic_new" />
 
             <ImageButton
                 android:id="@+id/imageButtonLista"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:contentDescription="@string/BotonLista"
                 android:onClick="ListaHerramienta"
                 android:scaleType="centerInside"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageButtonEliminar"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@mipmap/iconolista" />
+                app:srcCompat="@drawable/ic_list" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewCodigo"
+            app:layout_constraintStart_toEndOf="@+id/textViewCodigo"
+            app:layout_constraintTop_toTopOf="@+id/textViewCodigo"
+            app:srcCompat="@drawable/ic_round_search_24" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

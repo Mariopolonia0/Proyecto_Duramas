@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.almacen">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
         android:allowBackup="true"
@@ -11,18 +14,44 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="o_mr1"
         android:theme="@style/AppTheme">
+
         <!--android:windowSoftInputMode="adjustPan" se usa para que el teclado no mueba los componentes asia arriba-->
         <!--activity android:name=".CrearFactura"/-->
         <activity android:name=".CrearFactura"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/barra_documento"
+            android:roundIcon="@drawable/ic_round_liquor_"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
-        <activity android:name=".VistaPdf" />
-        <activity android:name=".ListaHerramienta" />
-        <activity android:name=".AgregarHerramientas" />
+
+        <activity android:name=".ListaHerramienta"
+            android:windowSoftInputMode="adjustPan"
+            android:label="@string/Listadeherramienta">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AgregarHerramientas" />
+        </activity>
+
+        <activity android:name=".AgregarHerramientas"
+            android:windowSoftInputMode="adjustPan"
+            android:label="@string/EditarHerramientas"
+            android:icon="@drawable/ic_round_liquor_"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
         <activity android:name=".EntregarEquipo" />
         <activity android:name=".ListaDeEquipos" />
         <activity android:name=".FormularioEquipo" />
+        <activity android:name=".VistaPdf" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,6 +66,7 @@
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
+
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_path" />
         </provider>

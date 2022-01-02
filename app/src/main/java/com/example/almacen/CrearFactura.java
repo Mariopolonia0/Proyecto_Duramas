@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -45,6 +46,7 @@ public class CrearFactura extends AppCompatActivity {
     private EditText EditTextCantidad;
     private EditText EditTextPrecio;
     private CheckBox CheckBoxITBIS;
+    private ActionBar actionBar;
 
     private ListView listViewlistademateriales;
     ArrayList<DetalleMaterial> ListaMateriales=null;
@@ -69,6 +71,10 @@ public class CrearFactura extends AppCompatActivity {
         EditTextPrecio = (EditText) findViewById(R.id.editTextPrecioDocumento);
         CheckBoxITBIS = (CheckBox) findViewById(R.id.checkBoxItbis);
         CodigoDocumentoEditText.setText(OtenerUltimoRegistro());
+//        actionBar = getSupportActionBar();
+//        actionBar.setIcon(R.drawable.ic_round_liquor_);
+//        actionBar.setDisplayShowHomeEnabled(true);
+//        actionBar.setDisplayHomeAsUpEnabled(true);
 
         PrecioTotalText = (TextView) findViewById(R.id.textViewPrecioTotalDocumento);
         PrecioTotalText.setText("PRECIO $ 0");

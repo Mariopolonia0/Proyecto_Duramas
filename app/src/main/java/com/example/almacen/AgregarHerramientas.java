@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -12,22 +13,97 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.almacen.conexion_api.ApiUtils;
+import com.example.almacen.conexion_api.MaterialApi;
+import com.example.almacen.conexion_api.Materials;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class AgregarHerramientas extends AppCompatActivity {
 
     public EditText EditTextCodigoHerramientas ;
     public EditText EditTextDescripcion;
     public EditText EditTextCantidad;
     public EditText EditTextMarca;
+    private MaterialApi mAPIService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_herramientas);
 
         EditTextCodigoHerramientas = (EditText)findViewById(R.id.editTextCodigoHerramientas);
-        EditTextCodigoHerramientas.setText(OtenerUltimoRegistro());
+        EditTextCodigoHerramientas.setText("0");
         EditTextDescripcion = (EditText)findViewById(R.id.editTextDescripcionHerramientas);
-        EditTextCantidad = (EditText)findViewById(R.id.editTextCantidadHerramientas);
+        EditTextCantidad = (EditText)findViewById(R.id.editTextCantidadHerramientas) ;
         EditTextMarca = (EditText)findViewById(R.id.editTextMarca);
+        mAPIService = ApiUtils.getMaterialApi();
+
+    }
+
+    public void enviarMaterialapi(View view){
+
+        if(!conprobarCampos())
+            return;
+
+        String CodigoHerramaientas = EditTextCodigoHerramientas.getText().toString();
+        String Descripcion = EditTextDescripcion.getText().toString();
+        int Cantidad = Integer.parseInt(EditTextCantidad.getText().toString()) ;
+        String Marca = EditTextMarca.getText().toString();
+
+        sendPost(new Materials(Descripcion,Cantidad,Marca));
+        Toast.makeText(this,"Dato Guardados Perfectamente", Toast.LENGTH_SHORT ).show();
+        Limpiar(view);
+
+    }
+
+    public  boolean conprobarCampos(){
+        if(EditTextCantidad.getText().length() == 0 || EditTextCodigoHerramientas.length() == 0 || EditTextDescripcion.length() == 0 ||
+                EditTextMarca.getText().length() == 0){
+
+            AlertDialog.Builder alerta = new AlertDialog.Builder( AgregarHerramientas.this);
+            alerta.setMessage("Hay Campo Vacío \nPor Favor Revise Los Campo").setCancelable(true);
+            AlertDialog titulo = alerta.create();
+            titulo.setTitle("Alerta. Lee el Mensaje");
+            titulo.show();
+            return false;
+        }
+
+        if(Integer.parseInt(EditTextCantidad.getText().toString()) <= 0){
+            AlertDialog.Builder alerta = new AlertDialog.Builder( AgregarHerramientas.this);
+            alerta.setMessage("Cantidad digitada es 0\nSi no tiene la herramienta\nNo la agregue \nAtt: Dany Castillo el jefe").setCancelable(true);
+            AlertDialog titulo = alerta.create();
+            titulo.setTitle("Alerta. Lee el Mensaje");
+            titulo.show();
+            return false;
+        }
+        if(Integer.parseInt(EditTextCantidad.getText().toString()) > 2000){
+            AlertDialog.Builder alerta = new AlertDialog.Builder( AgregarHerramientas.this);
+            alerta.setMessage("Esta App no es para manejar inventario de una ferreteria \nAtt: Dany Castillo el jefe").setCancelable(true);
+            AlertDialog titulo = alerta.create();
+            titulo.setTitle("Alerta. Lee el Mensaje");
+            titulo.show();
+            return false;
+        }
+        return true;
+    }
+
+    public void sendPost(Materials material) {
+        mAPIService.saveMateriales(material).enqueue(new Callback<Materials>() {
+            @Override
+            public void onResponse(Call<Materials> call, Response<Materials> response) {
+                if(response.isSuccessful()) {
+                    Log.i("error", " : " + response.body().toString());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Materials> call, Throwable t) {
+                Log.e("error", "Unable to submit post to API.");
+            }
+        });
     }
 
     public void GuardarHerramientas(View view){
@@ -150,11 +226,11 @@ public class AgregarHerramientas extends AppCompatActivity {
 
     public void Limpiar(View view){
 
-        EditTextCodigoHerramientas.setText("");
+        EditTextCodigoHerramientas.setText("0");
         EditTextDescripcion.setText("");
         EditTextCantidad.setText("");
         EditTextMarca.setText("");
-        EditTextCodigoHerramientas.requestFocus();
+        EditTextDescripcion.requestFocus();
     }
 
     public String OtenerUltimoRegistro(){
